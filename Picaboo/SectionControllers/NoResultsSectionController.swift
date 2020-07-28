@@ -32,4 +32,5 @@ func noResultsSectionController(text: String? = NSLocalizedString("No Results ðŸ
         configureBlock: configureBlock,
         sizeBlock: sizeBlock
     )
+    
 }

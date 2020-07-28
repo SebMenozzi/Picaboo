@@ -8,6 +8,7 @@
 import Alamofire
 
 public enum APIRoute {
+    
     case fetchPhotos(page: Int = 0)
     
     public var method: HTTPMethod {
@@ -37,4 +38,5 @@ public enum APIRoute {
                 return [ "Accept": "application/json" ]
         }
     }
+    
 }

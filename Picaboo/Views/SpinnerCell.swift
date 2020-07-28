@@ -8,7 +8,7 @@
 import UIKit
 
 final class SpinnerCell: UICollectionViewCell {
-    
+
     lazy var activityIndicator: UIActivityIndicatorView = {
         let ai = UIActivityIndicatorView(style: .medium)
         self.contentView.addSubview(ai)

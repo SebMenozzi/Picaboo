@@ -87,7 +87,6 @@ class PhotosController: UIViewController {
     private func updateLoadingIndicatorUI(isLoading: Bool = false) {
         DispatchQueue.main.async {
             self.isLoading = isLoading
-            // Display Loading indicator
             self.adapter.performUpdates(animated: true)
         }
     }
@@ -124,32 +123,18 @@ extension PhotosController: ListAdapterDataSource {
             return spinnerSectionController()
         } else if let obj = object as? String, obj == noPhotosToken {
             return noResultsSectionController(text: NSLocalizedString("No Photos 😑", comment: ""))
-        } else { // Photo model otherwise
-            let sc = PhotoSectionController()
-            //sc.delegate = self
-            return sc
+        } else { // PhotoWithID model otherwise
+            return PhotoSectionController()
         }
     }
     
     func emptyView(for listAdapter: ListAdapter) -> UIView? {
         return nil
     }
+    
 }
 
 extension PhotosController: UIScrollViewDelegate {
-    
-    /*
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let distance: CGFloat = 200
-        let bottomEdge = scrollView.contentOffset.y + scrollView.frame.size.height
-        
-        if (bottomEdge + distance >= scrollView.contentSize.height) {
-            print("Load more...")
-            
-            self.loadMore()
-        }
-    }
-    */
     
     func scrollViewWillEndDragging(_ scrollView: UIScrollView,
                                     withVelocity velocity: CGPoint,
@@ -162,4 +147,5 @@ extension PhotosController: UIScrollViewDelegate {
             self.loadMore()
         }
     }
+    
 }

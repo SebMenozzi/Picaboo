@@ -8,14 +8,17 @@
 import UIKit
 
 extension UIView {
+    
     func makeCorner(withRadius radius: CGFloat) {
         layer.cornerRadius = radius
         layer.masksToBounds = true
         layer.isOpaque = false
     }
+    
 }
 
 extension UILabel {
+    
     convenience init(text: String, font: UIFont, numberOfLines: Int = 1, color: UIColor = .black) {
         self.init(frame: .zero)
         self.text = text
@@ -23,18 +26,22 @@ extension UILabel {
         self.textColor = color
         self.numberOfLines = numberOfLines
     }
+    
 }
 
 extension UIImageView {
+    
     convenience init(cornerRadius: CGFloat) {
         self.init(image: nil)
         self.layer.cornerRadius = cornerRadius
         self.clipsToBounds = true
         self.contentMode = .scaleAspectFill
     }
+    
 }
 
 extension UIColor {
+    
     convenience init?(hex: String) {
         // trim leading # if present
         var cleanedHexString = hex
@@ -54,9 +61,11 @@ extension UIColor {
 
         self.init(red: red, green: green, blue: blue, alpha: 1.0)
     }
+    
 }
 
 extension UIImageView {
+    
     func loadImage(at url: URL) {
         UIImageLoader.shared.load(url, for: self)
     }
@@ -64,4 +73,5 @@ extension UIImageView {
     func cancelImageLoad() {
         UIImageLoader.shared.cancel(for: self)
     }
+    
 }

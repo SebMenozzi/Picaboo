@@ -9,6 +9,7 @@ import IGListKit
 import UIKit
 
 func spinnerSectionController() -> ListSingleSectionController {
+    
     let configureBlock = { (item: Any, cell: UICollectionViewCell) in
         guard let cell = cell as? SpinnerCell else { return }
         
@@ -26,4 +27,5 @@ func spinnerSectionController() -> ListSingleSectionController {
         configureBlock: configureBlock,
         sizeBlock: sizeBlock
     )
+    
 }

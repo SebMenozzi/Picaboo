@@ -44,9 +44,11 @@ final class PhotoCell: UICollectionViewCell {
         photoImageView.image = nil
         photoImageView.cancelImageLoad()
     }
+    
 }
 
 extension PhotoCell: ListBindable {
+    
     func bindViewModel(_ viewModel: Any) {
         guard let photoViewModel = viewModel as? PhotoViewModel else { return }
         
@@ -56,4 +58,5 @@ extension PhotoCell: ListBindable {
         
         photoImageView.loadImage(at: url)
     }
+    
 }
