@@ -6,8 +6,7 @@
 //
 
 import Foundation
-import UIKit.UIImage
-import Combine
+import UIKit
 
 public final class ImageLoader {
     
@@ -25,7 +24,7 @@ public final class ImageLoader {
         
         let taskId = UUID()
         
-        let task = URLSession.shared.dataTask(with: url) { data, response, error in
+        let task = URLSession.shared.dataTask(with: url) { data, _, error in
             if let data = data, let image = UIImage(data: data) {
                 self.cache.insertImage(image, for: url)
                 completion(.success(image))
