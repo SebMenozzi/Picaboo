@@ -8,13 +8,7 @@
 import UIKit
 import IGListKit
 
-protocol PhotosSectionControllerDelegate: class {
-    func didTapPhoto(photoView: UIView)
-}
-
 final class PhotoSectionController: ListBindingSectionController<PhotoWithID>, ListBindingSectionControllerDataSource, ListDisplayDelegate {
-    
-    weak var delegate: PhotosSectionControllerDelegate?
     
     override init() {
         super.init()

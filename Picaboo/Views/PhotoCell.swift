@@ -8,13 +8,7 @@
 import UIKit
 import IGListKit
 
-protocol PhotoCellDelegate: class {
-    func didTapPhoto(photoImageView: UIImageView)
-}
-
 final class PhotoCell: UICollectionViewCell {
-    
-    weak var delegate: PhotoCellDelegate? = nil
     
     let padding: CGFloat = 5
     
@@ -23,13 +17,8 @@ final class PhotoCell: UICollectionViewCell {
         imageView.backgroundColor = .black
         imageView.contentMode = .scaleAspectFill
         imageView.isUserInteractionEnabled = true
-        imageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleImage)))
         return imageView
     }()
-    
-    @objc func handleImage(sender: UITapGestureRecognizer) {
-        delegate?.didTapPhoto(photoImageView: photoImageView)
-    }
     
     override func layoutSubviews() {
         super.layoutSubviews()
