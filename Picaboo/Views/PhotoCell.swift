@@ -10,9 +10,9 @@ import IGListKit
 
 final class PhotoCell: UICollectionViewCell {
     
-    let padding: CGFloat = 5
+    private let padding: CGFloat = 5
     
-    lazy var photoImageView: UIImageView = {
+    private lazy var photoImageView: UIImageView = {
         let imageView = UIImageView(cornerRadius: 20)
         imageView.backgroundColor = .black
         imageView.contentMode = .scaleAspectFill

@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import IGListKit
 
 class PhotoUrls: Codable {
     let small: String

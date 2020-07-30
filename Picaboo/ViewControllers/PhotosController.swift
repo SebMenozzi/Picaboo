@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  PhotosController.swift
 //  Picaboo
 //
 //  Created by Sebastien Menozzi on 27/07/2020.
@@ -10,26 +10,22 @@ import IGListKit
 
 class PhotosController: UIViewController {
     
-    var isLoading = false
-    var isRefreshing = false
-    let spinToken = "spinner"
-    let noPhotosToken = "noPhotos"
+    private var isLoading = false
+    private var isRefreshing = false
+    private let spinToken = "spinner"
+    private let noPhotosToken = "noPhotos"
     
-    let photosService = PhotosService()
+    private let photosService = PhotosService()
     
-    let layout: ListCollectionViewLayout  = {
+    private lazy var collectionView: UICollectionView = {
         let layout = ListCollectionViewLayout(stickyHeaders: false, scrollDirection: .vertical, topContentInset: 0, stretchToEdge: true)
-        return layout
-    }()
-    
-    lazy var collectionView: UICollectionView = {
         let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
         cv.backgroundColor = UIColor(hex: "#150f41")
         cv.alwaysBounceVertical = true
         return cv
     }()
     
-    lazy var adapter: ListAdapter =  {
+    private lazy var adapter: ListAdapter =  {
         let updater = ListAdapterUpdater()
         let adapter = ListAdapter(updater: updater, viewController: self, workingRangeSize: 0)
         adapter.collectionView = collectionView
@@ -104,6 +100,7 @@ class PhotosController: UIViewController {
 }
 
 extension PhotosController: ListAdapterDataSource {
+    
     func objects(for listAdapter: ListAdapter) -> [ListDiffable] {
         var items: [ListDiffable] = photosService.getPhotos()
         

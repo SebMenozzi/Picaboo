@@ -1,5 +1,5 @@
 //
-//  GalleryService.swift
+//  PhotosService.swift
 //  Picaboo
 //
 //  Created by Sebastien Menozzi on 28/07/2020.
