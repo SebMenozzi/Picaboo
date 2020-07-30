@@ -10,10 +10,7 @@ import UIKit.UIImage
 
 public final class ImageCache {
 
-    private lazy var imageCache: NSCache<NSURL, AnyObject> = {
-        let cache = NSCache<NSURL, AnyObject>()
-        return cache
-    }()
+    private let imageCache = NSCache<NSURL, AnyObject>()
     
     private let lock = NSLock()
 
